@@ -80,38 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return re.test(String(email).toLowerCase());
     }
 
-    // Animações suaves ao fazer scroll (opcional, requer Intersection Observer API)
-    const sections = document.querySelectorAll('section');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            } else {
-                // Opcional: remover a classe para reanimar ao voltar
-                // entry.target.classList.remove('fade-in');
-            }
-        });
-    }, {
-        threshold: 0.2, // Quando 20% da seção estiver visível
-        rootMargin: '0px 0px -100px 0px' // Começa a observar um pouco antes de 100px do fim da viewport
-    });
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // Adicione esta classe ao seu CSS para a animação
-    /*
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .fade-in.fade-in { /* Duplicado para maior especificidade */
-        /* opacity: 1;
-        transform: translateY(0);
-    }
-    */
+    // O código do Intersection Observer customizado foi removido daqui
+    // A animação já é tratada pela biblioteca AOS no index.html
 });
