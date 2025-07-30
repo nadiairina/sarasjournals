@@ -40,6 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Simulação de envio (em um ambiente real, você enviaria para um backend)
             try {
+                // Aqui você enviaria os dados para um serviço como Formspree, Netlify Forms, ou um backend customizado
+                // Exemplo com Fetch API (requer um endpoint no servidor):
+                /*
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, message }),
+                });
+
+                if (response.ok) {
+                    formStatus.textContent = 'Mensagem enviada com sucesso! Brevemente entraremos em contacto.';
+                    formStatus.style.color = 'green';
+                    contactForm.reset(); // Limpa o formulário
+                } else {
+                    formStatus.textContent = 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde.';
+                    formStatus.style.color = 'red';
+                }
+                */
+
                 // Simulação de sucesso para demonstração:
                 await new Promise(resolve => setTimeout(resolve, 1500)); // Espera 1.5 segundos
                 formStatus.textContent = 'Mensagem enviada com sucesso! Brevemente entraremos em contacto.';
@@ -58,4 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     }
+
+    // O código do Intersection Observer customizado foi removido daqui
+    // A animação já é tratada pela biblioteca AOS no index.html
 });
