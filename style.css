@@ -12,10 +12,17 @@
     --pastel-orange: #FFDAB9; /* Laranja Pastel (PeachPuff como base) */
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
+/* RESET GLOBAL PARA REMOVER MARGENS E PADDINGS PADRÃO */
+html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%; /* Garante que body e html ocupem 100% da altura da viewport */
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-grey);
@@ -129,21 +136,31 @@ nav ul li a:hover::after {
 
 /* --- Hero Section --- */
 #hero {
-    background-image: url('imagens/background-hero.jpg'); /* O SEU CAMINHO DA IMAGEM AQUI */
-    background-size: cover; /* Faz a imagem cobrir toda a área */
+    /* CAMINHO DA IMAGEM ATUALIZADO PARA background.png */
+    background-image: url('imagens/background.png');
+    background-size: cover; /* Garante que a imagem cubra toda a área */
     background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
     background-attachment: fixed; /* Opcional: Efeito parallax */
     color: var(--white);
     text-align: center;
-    padding: 150px 20px 100px; /* Ajuste para compensar o header fixo */
+    padding: 0; /* Removido padding para ocupar a tela inteira */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Altura total da viewport */
-    box-sizing: border-box; /* Inclui padding na altura */
-    position: relative; /* Necessário para o overlay */
+    min-height: 100vh; /* Ocupa 100% da altura da viewport */
+    width: 100vw; /* Ocupa 100% da largura da viewport */
+    margin-top: 0; /* Garante que não há margem superior devido ao header fixo */
+    position: relative; /* Necessário para o overlay e para garantir que o z-index funcione com o header */
+    z-index: 1;
 }
+
+/* Ajuste para o main content para começar abaixo do header */
+main {
+    padding-top: 80px; /* Ajuste o valor para a altura do seu header */
+}
+
 
 /* Overlay para a imagem do hero - AQUI REDUZIMOS A OPACIDADE */
 #hero::before {
@@ -187,7 +204,7 @@ nav ul li a:hover::after {
     position: relative; /* Para posicionar a foto de perfil */
 }
 
-/* Estilo para a foto de perfil - TAMANHO AUMENTADO */
+/* Estilo para a foto de perfil - CAMINHO ATUALIZADO PARA perfil.png */
 .profile-picture {
     width: 200px; /* Aumentado para 200px */
     height: 200px; /* Aumentado para 200px */
