@@ -134,7 +134,7 @@ nav ul li a:hover::after {
 
 /* --- Hero Section --- */
 #hero {
-    background-image: url('imagens/background.png'); /* Caminho da imagem de fundo */
+    background-image: url('background.png'); /* Caminho da imagem de fundo */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
