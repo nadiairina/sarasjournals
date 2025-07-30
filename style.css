@@ -42,7 +42,6 @@ section h2 { /* Aplica-se a h2 dentro de qualquer seção */
     margin-bottom: 30px; /* Adiciona um pouco mais de espaço abaixo do título */
 }
 
-
 /* Novas classes para cores específicas */
 .text-white {
     color: var(--white) !important; /* !important para sobrescrever estilos existentes */
@@ -55,7 +54,6 @@ section h2 { /* Aplica-se a h2 dentro de qualquer seção */
 .color-pastel-orange {
     color: var(--pastel-orange) !important;
 }
-
 
 a {
     text-decoration: none;
@@ -81,7 +79,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Z-index alto para o header ficar sempre por cima */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -136,24 +134,23 @@ nav ul li a:hover::after {
 
 /* --- Hero Section --- */
 #hero {
-    /* CAMINHO DA IMAGEM ATUALIZADO PARA background.png */
-    background-image: url('imagens/background.png');
-    background-size: cover; /* Garante que a imagem cubra toda a área */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita a repetição da imagem */
-    background-attachment: fixed; /* Opcional: Efeito parallax */
+    background-image: url('imagens/background.png'); /* Caminho da imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--white);
     text-align: center;
-    padding: 0; /* Removido padding para ocupar a tela inteira */
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ocupa 100% da altura da viewport */
-    width: 100vw; /* Ocupa 100% da largura da viewport */
-    margin-top: 0; /* Garante que não há margem superior devido ao header fixo */
-    position: relative; /* Necessário para o overlay e para garantir que o z-index funcione com o header */
-    z-index: 1;
+    min-height: 100vh;
+    width: 100vw;
+    margin-top: 0;
+    position: relative; /* FUNDAMENTAL para que o z-index funcione nos filhos */
+    z-index: 1; /* Define o contexto de empilhamento para os elementos dentro */
 }
 
 /* Ajuste para o main content para começar abaixo do header */
@@ -161,8 +158,7 @@ main {
     padding-top: 80px; /* Ajuste o valor para a altura do seu header */
 }
 
-
-/* Overlay para a imagem do hero - AQUI REDUZIMOS A OPACIDADE */
+/* Overlay para a imagem do hero */
 #hero::before {
     content: '';
     position: absolute;
@@ -170,14 +166,15 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(248, 200, 220, 0.3); /* Rosa claro com 30% de opacidade (mais visível) */
-    z-index: 1; /* Coloca o overlay acima da imagem, mas abaixo do conteúdo */
+    background-color: rgba(248, 200, 220, 0.4); /* Rosa claro com 40% de opacidade (um pouco mais visível) */
+    z-index: 2; /* Coloca o overlay ACIMA da imagem de fundo, mas ABAIXO do conteúdo */
 }
 
+/* Conteúdo da seção Hero (h1 e p) */
 #hero h1, #hero p {
-    position: relative; /* Coloca o conteúdo acima do overlay */
-    z-index: 2;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Sombra para melhorar a legibilidade */
+    position: relative; /* Necessário para aplicar z-index */
+    z-index: 3; /* Coloca o conteúdo ACIMA do overlay */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra um pouco mais forte para melhorar a legibilidade */
 }
 
 #hero h1 {
@@ -202,27 +199,28 @@ main {
     margin-bottom: 40px;
     padding-top: 80px; /* Mais espaço para a foto de perfil acima do título */
     position: relative; /* Para posicionar a foto de perfil */
+    z-index: 5; /* Garante que está acima de outras seções caso necessário */
 }
 
-/* Estilo para a foto de perfil - CAMINHO ATUALIZADO PARA perfil.png */
+/* Estilo para a foto de perfil */
 .profile-picture {
-    width: 200px; /* Aumentado para 200px */
-    height: 200px; /* Aumentado para 200px */
-    border-radius: 50%; /* Transforma em círculo */
-    overflow: hidden; /* Garante que a imagem seja cortada em círculo */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translate(-50%, -50%); /* Move o elemento para cima e para a esquerda em 50% do seu próprio tamanho */
-    border: 5px solid var(--white); /* Borda branca */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra para dar profundidade */
-    z-index: 10; /* Garante que a foto fique acima de outros elementos */
+    transform: translate(-50%, -50%);
+    border: 5px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 10; /* Z-index alto para a foto de perfil */
 }
 
 .profile-picture img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
+    object-fit: cover;
 }
 
 #quem-sou h2 {
@@ -232,38 +230,38 @@ main {
 
 /* Estilo para o conteúdo da seção Quem Sou (alinhamento da lista) */
 .quem-sou-content {
-    max-width: 800px; /* Mantém a largura máxima */
-    margin: 0 auto; /* Centraliza a div */
-    text-align: left; /* Alinha o texto à esquerda dentro desta div */
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .quem-sou-content p {
     margin-bottom: 20px;
     font-size: 1.1rem;
     color: #555;
-    text-align: left; /* Garante que os parágrafos também estejam à esquerda */
+    text-align: left;
 }
 
 /* Estilo para os bullet points personalizados */
 .custom-bullet-points {
-    list-style: none; /* Remove os marcadores de lista padrão */
-    padding: 0; /* Remove o padding padrão da lista */
-    margin-left: 20px; /* Adiciona uma margem para recuo da lista inteira */
-    margin-bottom: 20px; /* Espaço abaixo da lista */
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .custom-bullet-points li {
-    display: flex; /* Permite alinhar ícone e texto */
-    align-items: center; /* Centraliza verticalmente ícone e texto */
-    margin-bottom: 10px; /* Espaço entre os itens da lista */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
     font-size: 1.1rem;
     color: #555;
 }
 
 .icon-bullet {
-    color: var(--dark-pink); /* Cor dos ícones (tom de rosa) */
-    margin-right: 10px; /* Espaço entre o ícone e o texto */
-    font-size: 1.3rem; /* Tamanho do ícone */
+    color: var(--dark-pink);
+    margin-right: 10px;
+    font-size: 1.3rem;
 }
 
 
@@ -271,6 +269,8 @@ main {
 #produtos {
     background-color: var(--secondary-pink);
     padding-bottom: 80px;
+    position: relative; /* Define contexto de empilhamento */
+    z-index: 4; /* Garante que está acima da hero se houver scroll e algum sobreposição */
 }
 
 .product-gallery {
@@ -292,22 +292,22 @@ main {
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 ou 4 colunas dependendo do espaço */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Min-width ajustado para fotos maiores */
+    gap: 30px; /* AUMENTADO O ESPAÇAMENTO ENTRE AS FOTOS */
     margin-top: 30px;
 }
 
 .gallery-container img {
     width: 100%;
-    height: 280px; /* Aumentado de 200px para 280px */
-    object-fit: cover; /* Recorta a imagem para preencher o espaço */
+    height: 350px; /* AUMENTADO A ALTURA DAS FOTOS */
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out;
 }
 
 .gallery-container img:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.05);
 }
 
 /* --- Contactos Section (Formulário) --- */
@@ -317,6 +317,8 @@ main {
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     border-radius: 8px;
     margin-top: 40px;
+    position: relative; /* Define contexto de empilhamento */
+    z-index: 4; /* Garante que está acima da hero se houver scroll */
 }
 
 #contactos p {
@@ -356,7 +358,7 @@ main {
     border: 1px solid var(--primary-pink);
     border-radius: 5px;
     font-size: 1rem;
-    box-sizing: border-box; /* Inclui padding e border na largura */
+    box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -375,7 +377,7 @@ button[type="submit"] {
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: center; /* Centraliza o botão */
+    align-self: center;
     margin-top: 20px;
 }
 
@@ -387,7 +389,7 @@ button[type="submit"]:hover {
 #form-status {
     margin-top: 15px;
     font-weight: 600;
-    color: green; /* Cor para sucesso */
+    color: green;
 }
 
 /* --- Social Links --- */
@@ -426,12 +428,12 @@ footer {
 }
 
 footer a {
-    color: var(--white); /* Cor para o link no footer */
+    color: var(--white);
     font-weight: 600;
 }
 
 footer a:hover {
-    color: #cc99bb; /* Cor ao passar o mouse */
+    color: #cc99bb;
 }
 
 /* --- Responsive Design --- */
@@ -443,7 +445,7 @@ footer a:hover {
 
     nav ul {
         margin-top: 15px;
-        flex-wrap: wrap; /* Permite que os itens quebrem linha */
+        flex-wrap: wrap;
         justify-content: center;
     }
 
@@ -459,14 +461,13 @@ footer a:hover {
         font-size: 1.2rem;
     }
 
-    /* Reduz o tamanho da letra dos títulos das seções em telas menores */
     section h2 {
         font-size: 2.2rem;
     }
 
     /* Fotos da galeria em telas menores */
     .gallery-container img {
-        height: 200px; /* Altura ajustada para telas menores */
+        height: 250px; /* Altura ajustada para telas menores */
     }
 
     .product-gallery h3 {
@@ -486,9 +487,8 @@ footer a:hover {
         margin: 0 10px;
     }
 
-    /* Foto de perfil em telas menores */
     .profile-picture {
-        width: 150px; /* Reduzido um pouco para telas menores */
+        width: 150px;
         height: 150px;
         top: 0;
         transform: translate(-50%, -50%);
@@ -528,7 +528,6 @@ footer a:hover {
         padding: 40px 15px;
     }
 
-    /* Reduz o tamanho da letra dos títulos das seções em telas muito pequenas */
     section h2 {
         font-size: 1.8rem;
     }
@@ -539,10 +538,9 @@ footer a:hover {
 
     /* Fotos da galeria em telas muito pequenas */
     .gallery-container img {
-        height: 180px; /* Altura ajustada para telas muito pequenas */
+        height: 200px; /* Altura ajustada para telas muito pequenas */
     }
 
-    /* Foto de perfil em telas muito pequenas */
     .profile-picture {
         width: 120px;
         height: 120px;
