@@ -1,72 +1,63 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Suave para as seções
-    // Seleciona APENAS os links dentro da 'nav' cujo 'href' começa com '#'
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Impede o comportamento padrão de "saltar" para a seção
-
-            const targetId = this.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Lógica para o formulário de contacto (exemplo básico)
+document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Impede o envio padrão do formulário
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
 
-            formStatus.textContent = 'A enviar mensagem...';
-            formStatus.style.color = '#333'; // Cor neutra enquanto envia
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Validação básica (pode ser mais robusta)
-            if (!name || !email || !message) {
+            // Basic validation
+            if (name === '' || email === '' || message === '') {
+                formStatus.style.color = 'red';
                 formStatus.textContent = 'Por favor, preencha todos os campos.';
-                formStatus.style.color = 'red';
                 return;
             }
 
-            if (!validateEmail(email)) {
+            // Simple email validation (more robust validation would be server-side)
+            if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+                formStatus.style.color = 'red';
                 formStatus.textContent = 'Por favor, insira um email válido.';
-                formStatus.style.color = 'red';
                 return;
             }
 
-            // Simulação de envio (em um ambiente real, você enviaria para um backend)
-            try {
-                // Simulação de sucesso para demonstração:
-                await new Promise(resolve => setTimeout(resolve, 1500)); // Espera 1.5 segundos
-                formStatus.textContent = 'Mensagem enviada com sucesso! Brevemente entraremos em contacto.';
-                formStatus.style.color = 'green';
-                contactForm.reset(); // Limpa o formulário
+            // Simulate form submission (in a real scenario, you'd send this to a backend)
+            formStatus.style.color = 'blue';
+            formStatus.textContent = 'A enviar mensagem...';
 
-            } catch (error) {
-                console.error('Erro ao enviar o formulário:', error);
-                formStatus.textContent = 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde.';
-                formStatus.style.color = 'red';
-            }
+            setTimeout(() => {
+                // Here you would typically send the data to a server using fetch() or XMLHttpRequest
+                // For demonstration purposes, we'll just show a success message.
+                console.log('Formulário submetido:');
+                console.log('Nome:', name);
+                console.log('Email:', email);
+                console.log('Mensagem:', message);
+
+                formStatus.style.color = 'green';
+                formStatus.textContent = 'Mensagem enviada com sucesso! Em breve entrarei em contacto.';
+                contactForm.reset(); // Clear the form
+            }, 2000); // Simulate a 2-second delay for sending
         });
     }
 
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    // O código do Intersection Observer customizado foi removido daqui
-    // A animação já é tratada pela biblioteca AOS no index.html
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
 
-    // Inicialização explícita do Fresco.js
-    // Garante que o Fresco seja ativado após o DOM estar pronto e jQuery carregado
-    $(document).ready(function() {
-        $('a[data-fresco-group]').fresco();
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - document.querySelector('header').offsetHeight, // Adjust for fixed header
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
