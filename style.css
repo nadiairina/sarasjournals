@@ -12,17 +12,10 @@
     --pastel-orange: #FFDAB9; /* Laranja Pastel (PeachPuff como base) */
 }
 
-/* RESET GLOBAL PARA REMOVER MARGENS E PADDINGS PADRÃO */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%; /* Garante que body e html ocupem 100% da altura da viewport */
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
-}
-
 body {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-grey);
@@ -42,6 +35,7 @@ section h2 { /* Aplica-se a h2 dentro de qualquer seção */
     margin-bottom: 30px; /* Adiciona um pouco mais de espaço abaixo do título */
 }
 
+
 /* Novas classes para cores específicas */
 .text-white {
     color: var(--white) !important; /* !important para sobrescrever estilos existentes */
@@ -54,6 +48,7 @@ section h2 { /* Aplica-se a h2 dentro de qualquer seção */
 .color-pastel-orange {
     color: var(--pastel-orange) !important;
 }
+
 
 a {
     text-decoration: none;
@@ -79,7 +74,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; /* Z-index alto para o header ficar sempre por cima */
+    z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -134,38 +129,38 @@ nav ul li a:hover::after {
 
 /* --- Hero Section --- */
 #hero {
-    background-image: url('background.png'); /* Caminho da imagem de fundo */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-image: url('background.png'); /* O SEU CAMINHO DA IMAGEM AQUI */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-attachment: fixed; /* Opcional: Efeito parallax */
     color: var(--white);
     text-align: center;
-    padding: 0;
+    padding: 150px 20px 100px; /* Ajuste para compensar o header fixo */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    width: 100vw;
-    margin-top: 0;
-    position: relative; /* FUNDAMENTAL para que o z-index funcione nos filhos */
-    z-index: 1; /* Define o contexto de empilhamento para os elementos dentro */
+    min-height: 100vh; /* Altura total da viewport */
+    box-sizing: border-box; /* Inclui padding na altura */
+    position: relative; /* Necessário para o overlay */
 }
 
-/* Ajuste para o main content para começar abaixo do header */
-main {
-    padding-top: 80px; /* Ajuste o valor para a altura do seu header */
+/* Overlay para a imagem do hero - AQUI REDUZIMOS A OPACIDADE */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(248, 200, 220, 0.3); /* Rosa claro com 30% de opacidade (mais visível) */
+    z-index: 1; /* Coloca o overlay acima da imagem, mas abaixo do conteúdo */
 }
 
-/* FILTRO ROSA REMOVIDO: A regra #hero::before foi removida, e qualquer background-blend-mode */
-/* (Se houver outra regra que adicione um filtro rosa, ela não foi tocada, pois só alterei o que era evidente para a questão do filtro.) */
-
-/* Conteúdo da seção Hero (h1 e p) */
 #hero h1, #hero p {
-    position: relative; /* Necessário para aplicar z-index */
-    z-index: 3; /* Coloca o conteúdo ACIMA da imagem de fundo */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra um pouco mais forte para melhorar a legibilidade */
+    position: relative; /* Coloca o conteúdo acima do overlay */
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Sombra para melhorar a legibilidade */
 }
 
 #hero h1 {
@@ -178,29 +173,9 @@ main {
     font-size: 1.5rem;
     max-width: 800px;
     line-height: 1.5;
-    margin-bottom: 40px; /* Adiciona espaço abaixo do parágrafo para a foto */
 }
 
-/* Estilo para a foto de perfil dentro de #hero */
-.profile-picture {
-    width: 300px; /* AUMENTADO O TAMANHO */
-    height: 300px; /* AUMENTADO O TAMANHO */
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative; /* Para que fique dentro do fluxo do conteúdo da hero */
-    margin-top: 20px; /* Espaçamento entre o parágrafo e a foto */
-    border: 5px solid var(--white);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    z-index: 10;
-    /* Removido quaisquer estilos de posicionamento absoluto que pudessem ter existido aqui */
-}
-
-.profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+/* --- Quem Sou Section --- */
 #quem-sou {
     background-color: var(--white);
     text-align: center;
@@ -208,9 +183,29 @@ main {
     border-radius: 8px;
     margin-top: 40px;
     margin-bottom: 40px;
-    padding-top: 60px; /* AJUSTADO: REMOVIDO PADDING EXTRA QUE ERA PARA A FOTO DE PERFIL AQUI */
-    position: relative;
-    z-index: 5;
+    padding-top: 80px; /* Mais espaço para a foto de perfil acima do título */
+    position: relative; /* Para posicionar a foto de perfil */
+}
+
+/* Estilo para a foto de perfil - TAMANHO AUMENTADO */
+.profile-picture {
+    width: 200px; /* Aumentado para 200px */
+    height: 200px; /* Aumentado para 200px */
+    border-radius: 50%; /* Transforma em círculo */
+    overflow: hidden; /* Garante que a imagem seja cortada em círculo */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Move o elemento para cima e para a esquerda em 50% do seu próprio tamanho */
+    border: 5px solid var(--white); /* Borda branca */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra para dar profundidade */
+    z-index: 10; /* Garante que a foto fique acima de outros elementos */
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
 }
 
 #quem-sou h2 {
@@ -220,38 +215,38 @@ main {
 
 /* Estilo para o conteúdo da seção Quem Sou (alinhamento da lista) */
 .quem-sou-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
+    max-width: 800px; /* Mantém a largura máxima */
+    margin: 0 auto; /* Centraliza a div */
+    text-align: left; /* Alinha o texto à esquerda dentro desta div */
 }
 
 .quem-sou-content p {
     margin-bottom: 20px;
     font-size: 1.1rem;
     color: #555;
-    text-align: left;
+    text-align: left; /* Garante que os parágrafos também estejam à esquerda */
 }
 
 /* Estilo para os bullet points personalizados */
 .custom-bullet-points {
-    list-style: none;
-    padding: 0;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    list-style: none; /* Remove os marcadores de lista padrão */
+    padding: 0; /* Remove o padding padrão da lista */
+    margin-left: 20px; /* Adiciona uma margem para recuo da lista inteira */
+    margin-bottom: 20px; /* Espaço abaixo da lista */
 }
 
 .custom-bullet-points li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    display: flex; /* Permite alinhar ícone e texto */
+    align-items: center; /* Centraliza verticalmente ícone e texto */
+    margin-bottom: 10px; /* Espaço entre os itens da lista */
     font-size: 1.1rem;
     color: #555;
 }
 
 .icon-bullet {
-    color: var(--dark-pink);
-    margin-right: 10px;
-    font-size: 1.3rem;
+    color: var(--dark-pink); /* Cor dos ícones (tom de rosa) */
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    font-size: 1.3rem; /* Tamanho do ícone */
 }
 
 
@@ -259,8 +254,6 @@ main {
 #produtos {
     background-color: var(--secondary-pink);
     padding-bottom: 80px;
-    position: relative; /* Define contexto de empilhamento */
-    z-index: 4; /* Garante que está acima da hero se houver scroll e algum sobreposição */
 }
 
 .product-gallery {
@@ -278,265 +271,4 @@ main {
     border-bottom: 2px solid var(--primary-pink);
     padding-bottom: 10px;
     display: inline-block;
-}
-
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Min-width ajustado para fotos maiores */
-    gap: 30px; /* AUMENTADO O ESPAÇAMENTO ENTRE AS FOTOS */
-    margin-top: 30px;
-}
-
-.gallery-container img {
-    width: 100%;
-    height: 350px; /* AUMENTADO A ALTURA DAS FOTOS */
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.gallery-container img:hover {
-    transform: scale(1.05);
-}
-
-/* --- Contactos Section (Formulário) --- */
-#contactos {
-    background-color: var(--white);
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    border-radius: 8px;
-    margin-top: 40px;
-    position: relative; /* Define contexto de empilhamento */
-    z-index: 4; /* Garante que está acima da hero se houver scroll */
-}
-
-#contactos p {
-    max-width: 700px;
-    margin: 0 auto 30px;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-#contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    border: 1px solid var(--secondary-pink);
-    border-radius: 8px;
-    background-color: var(--light-grey);
-}
-
-.form-group {
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--dark-pink);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--primary-pink);
-    border-radius: 5px;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--dark-pink);
-    box-shadow: 0 0 0 3px rgba(224, 187, 228, 0.3);
-}
-
-button[type="submit"] {
-    background-color: var(--dark-pink);
-    color: var(--white);
-    padding: 15px 25px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: center;
-    margin-top: 20px;
-}
-
-button[type="submit"]:hover {
-    background-color: #cc99bb;
-    transform: translateY(-2px);
-}
-
-#form-status {
-    margin-top: 15px;
-    font-weight: 600;
-    color: green;
-}
-
-/* --- Social Links --- */
-.social-links {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px dashed var(--secondary-pink);
-}
-
-.social-links h3 {
-    margin-bottom: 20px;
-    color: var(--dark-pink);
-    font-size: 1.8rem;
-}
-
-.social-links a {
-    font-size: 2.5rem;
-    margin: 0 15px;
-    color: var(--dark-pink);
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.social-links a:hover {
-    color: #cc99bb;
-    transform: translateY(-3px);
-}
-
-/* --- Footer --- */
-footer {
-    background-color: var(--primary-pink);
-    color: var(--white);
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    font-size: 0.9rem;
-}
-
-footer a {
-    color: var(--white);
-    font-weight: 600;
-}
-
-footer a:hover {
-    color: #cc99bb;
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 5px 10px;
-    }
-
-    #hero h1 {
-        font-size: 2.5rem;
-    }
-
-    #hero p {
-        font-size: 1.2rem;
-    }
-
-    section h2 {
-        font-size: 2.2rem;
-    }
-
-    /* Fotos da galeria em telas menores */
-    .gallery-container img {
-        height: 250px; /* Altura ajustada para telas menores */
-    }
-
-    .product-gallery h3 {
-        font-size: 1.6rem;
-    }
-
-    #contact-form {
-        padding: 15px;
-    }
-
-    button[type="submit"] {
-        width: 100%;
-    }
-
-    .social-links a {
-        font-size: 2rem;
-        margin: 0 10px;
-    }
-
-    .profile-picture {
-        width: 220px; /* Ajuste para mobile */
-        height: 220px; /* Ajuste para mobile */
-        margin-top: 20px;
-    }
-    #quem-sou {
-        padding-top: 60px; /* Sem alterações, mantido para evitar mexer no resto */
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 10px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    nav ul li {
-        margin: 5px 8px;
-        font-size: 0.9rem;
-    }
-
-    #hero {
-        padding: 120px 15px 80px;
-    }
-
-    #hero h1 {
-        font-size: 2rem;
-    }
-
-    #hero p {
-        font-size: 1rem;
-    }
-
-    section {
-        padding: 40px 15px;
-    }
-
-    /* Reduz o tamanho da letra dos títulos das seções em telas muito pequenas */
-    section h2 {
-        font-size: 1.8rem;
-    }
-
-    .product-gallery h3 {
-        font-size: 1.4rem;
-    }
-
-    /* Fotos da galeria em telas muito pequenas */
-    .gallery-container img {
-        height: 200px; /* Altura ajustada para telas muito pequenas */
-    }
-
-    .profile-picture {
-        width: 180px; /* Ajuste para mobile */
-        height: 180px; /* Ajuste para mobile */
-        margin-top: 20px;
-    }
-    #quem-sou {
-        padding-top: 60px; /* Sem alterações, mantido para evitar mexer no resto */
-    }
 }
