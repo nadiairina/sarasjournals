@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fresco/2.3.0/css/fresco.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
     <header>
@@ -27,9 +29,9 @@
             <p>Sê bem-vinda ao meu Espaço para Leitores!</p>
         </section>
 
-        <section id="quem-sou">
+        <section id="quem-sou" data-aos="fade-up">
             <div class="profile-picture">
-                <img src="perfil.png" alt="Foto de Perfil de Sara">
+                <img src="imagens/Captura de ecrã 2025-07-30, às 17.15.42.jpg" alt="Foto de Perfil de Sara">
             </div>
             <h2>Quem Sou</h2>
             <div class="quem-sou-content">
@@ -46,7 +48,7 @@
             </div>
         </section>
 
-        <section id="produtos">
+        <section id="produtos" data-aos="fade-up">
             <h2 class="text-white">Cadernos</h2>
             <h3 class="text-white">Liberta a tua criatividade com a minha coleção de cadernos, feitos para escreveres e organizações o teu mundo interior!</h3>
             <div class="product-gallery">
@@ -98,7 +100,7 @@
             </div>
         </section>
 
-        <section id="contactos">
+        <section id="contactos" data-aos="fade-up">
             <h2>Contactos</h2>
             <p>Tens alguma questão ou gostarias de encomendar um dos meus produtos? Preenche o formulário abaixo ou entra em contacto comigo através do Instagram!</p>
             <form id="contact-form">
@@ -119,7 +121,7 @@
             </form>
 
             <div class="social-links">
-                <h3>Segue-me no Instagram!</h3>
+                <h3>Sigue-me no Instagram!</h3>
 
                 <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 
@@ -128,11 +130,21 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Sara's Journals. Todos os direitos reservados.<br>Website desenvolvido por <a href="https://nadiairina.github.io/Nadia-Portfolio/index.html" target="_blank"><span>Nadia Irina.</span></a></p>
+        <p>&copy; 2025 Lar & Sabor. Todos os direitos reservados.<br>Website desenvolvido por <a href="https://nadiairina.github.io/Nadia-Portfolio/index.html" target="_blank"><span>Nadia Irina.</span></a></p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fresco/2.3.0/js/fresco.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        // Inicializar o AOS
+        AOS.init({
+            duration: 1000, // Duração da animação em milissegundos
+            once: true,    // Anima apenas uma vez ao rolar para baixo
+            offset: 100    // Começa a animar 100px antes de atingir o elemento
+        });
+    </script>
 </body>
 </html>
