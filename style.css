@@ -106,7 +106,10 @@ nav ul li a:hover::after {
 
 /* --- Hero Section --- */
 #hero {
-    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%);
+    background-image: url('imagens/background-hero.jpg'); /* O SEU CAMINHO DA IMAGEM AQUI */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-attachment: fixed; /* Opcional: Efeito parallax */
     color: var(--white);
     text-align: center;
     padding: 150px 20px 100px; /* Ajuste para compensar o header fixo */
@@ -116,6 +119,25 @@ nav ul li a:hover::after {
     align-items: center;
     min-height: 100vh; /* Altura total da viewport */
     box-sizing: border-box; /* Inclui padding na altura */
+    position: relative; /* Necessário para o overlay */
+}
+
+/* Overlay para a imagem do hero */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(248, 200, 220, 0.7); /* Rosa claro com 70% de opacidade */
+    z-index: 1; /* Coloca o overlay acima da imagem, mas abaixo do conteúdo */
+}
+
+#hero h1, #hero p {
+    position: relative; /* Coloca o conteúdo acima do overlay */
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Sombra para melhorar a legibilidade */
 }
 
 #hero h1 {
@@ -138,6 +160,36 @@ nav ul li a:hover::after {
     border-radius: 8px;
     margin-top: 40px;
     margin-bottom: 40px;
+    padding-top: 80px; /* Mais espaço para a foto de perfil acima do título */
+    position: relative; /* Para posicionar a foto de perfil */
+}
+
+/* Estilo para a foto de perfil */
+.profile-picture {
+    width: 150px; /* Tamanho do círculo */
+    height: 150px;
+    border-radius: 50%; /* Transforma em círculo */
+    overflow: hidden; /* Garante que a imagem seja cortada em círculo */
+    /* Centraliza e levanta o círculo sobrepondo a seção anterior */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Move o elemento para cima e para a esquerda em 50% do seu próprio tamanho */
+    border: 5px solid var(--white); /* Borda branca */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra para dar profundidade */
+    z-index: 10; /* Garante que a foto fique acima de outros elementos */
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
+}
+
+
+#quem-sou h2 {
+    margin-top: 0; /* Remove a margem superior padrão do h2 */
+    padding-top: 20px; /* Adiciona padding para afastar do círculo */
 }
 
 #quem-sou p {
@@ -306,6 +358,15 @@ footer {
     font-size: 0.9rem;
 }
 
+footer a {
+    color: var(--white); /* Cor para o link no footer */
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: #cc99bb; /* Cor ao passar o mouse */
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     nav {
@@ -351,6 +412,17 @@ footer {
         font-size: 2rem;
         margin: 0 10px;
     }
+
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+        /* Ajusta a posição para telas menores */
+        top: 0;
+        transform: translate(-50%, -50%);
+    }
+    #quem-sou {
+        padding-top: 70px; /* Ajuste para telas menores */
+    }
 }
 
 @media (max-width: 480px) {
@@ -385,5 +457,16 @@ footer {
 
     .product-gallery h3 {
         font-size: 1.4rem;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+        /* Ajusta a posição para telas menores */
+        top: 0;
+        transform: translate(-50%, -50%);
+    }
+    #quem-sou {
+        padding-top: 60px; /* Ajuste para telas menores */
     }
 }
