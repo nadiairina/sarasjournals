@@ -106,7 +106,7 @@ nav ul li a:hover::after {
 
 /* --- Hero Section --- */
 #hero {
-    background-image: url('imagens/background-hero.jpg'); /* O SEU CAMINHO DA IMAGEM AQUI */
+    background-image: url('background.png'); /* O SEU CAMINHO DA IMAGEM AQUI */
     background-size: cover; /* Faz a imagem cobrir toda a área */
     background-position: center; /* Centraliza a imagem */
     background-attachment: fixed; /* Opcional: Efeito parallax */
