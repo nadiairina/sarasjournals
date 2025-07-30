@@ -85,3 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // O código do Intersection Observer customizado foi removido daqui
     // A animação já é tratada pela biblioteca AOS no index.html
 });
+// Adicione este bloco no final de script.js, por exemplo.
+// Se já estiver dentro de DOMContentLoaded, pode ser imediatamente antes do seu AOS.init().
+$(document).ready(function() {
+    // Inicializa Fresco em todos os links que têm o atributo data-fresco-group
+    $('a[data-fresco-group]').fresco(); 
+});
