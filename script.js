@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Scroll Suave para as seções
-    document.querySelectorAll('nav a').forEach(anchor => {
+    // Seleciona APENAS os links dentro da 'nav' cujo 'href' começa com '#'
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Impede o comportamento padrão de "saltar" para a seção
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
                 behavior: 'smooth'
             });
         });
