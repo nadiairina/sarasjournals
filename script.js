@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Animações suaves ao fazer scroll (opcional, requer Intersection Observer API)
-    // Isso é um pouco mais avançado, mas melhora a UX.
     const sections = document.querySelectorAll('section');
 
     const observer = new IntersectionObserver(entries => {
