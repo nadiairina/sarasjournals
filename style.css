@@ -1,96 +1,105 @@
 /* Importação de fontes */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Lora:wght@400;700&display=swap');
+/* Opções: 'Poppins' para corpo, 'Lora' ou 'Playfair Display' para títulos */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-    --primary-color: #4A90E2; /* Azul vibrante */
-    --secondary-color: #50E3C2; /* Verde água */
-    --dark-text: #333333;
-    --light-text: #666666;
-    --background-light: #F7F9FC;
-    --background-dark: #2C3E50; /* Azul escuro quase preto */
-    --white: #FFFFFF;
-    --border-light: #E0E6EE;
-    --accent-color: #FFC107; /* Amarelo para destaques */
+    /* Paleta de Cores de Rosa Suave (Mantida e Ajustada) */
+    --primary-pink: #F8C8DC; /* Rosa claro principal */
+    --secondary-pink: #FADDEB; /* Rosa mais claro para fundos */
+    --dark-pink: #E0BBE4; /* Um rosa um pouco mais forte para detalhes e links */
+    --accent-pink: #F2A4C2; /* Um rosa um pouco mais vibrante para destaques */
+
+    /* Cores de Texto e Fundo neutras */
+    --text-dark: #333333; /* Texto principal */
+    --text-light: #555555; /* Texto secundário */
+    --background-light-grey: #fefefe; /* Fundo muito claro */
+    --border-grey: #e8e8e8; /* Cor de borda suave */
+    --white: #ffffff;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Nova fonte para o corpo */
     margin: 0;
     padding: 0;
-    line-height: 1.7;
-    color: var(--dark-text);
-    background-color: var(--background-light);
-    overflow-x: hidden; /* Evita scroll horizontal */
+    line-height: 1.8; /* Aumentado para melhor legibilidade */
+    color: var(--text-dark);
+    background-color: var(--background-light-grey);
+    overflow-x: hidden;
 }
 
 /* --- Global Styles --- */
 h1, h2, h3 {
-    font-family: 'Lora', serif;
-    color: var(--primary-color);
+    font-family: 'Playfair Display', serif; /* Mantido para títulos, mas um pouco mais refinado */
+    color: var(--dark-pink);
     text-align: center;
     margin-bottom: 1.8rem;
     font-weight: 700;
 }
 
+/* Estilo dos títulos de seção (H2) */
 section h2 {
-    font-size: 3rem;
+    font-size: 3.2rem; /* Ligeiramente maior */
     margin-bottom: 40px;
     position: relative;
     padding-bottom: 15px;
+    letter-spacing: 0.5px;
 }
 
-section h2::after {
+section h2::after { /* Linha decorativa por baixo dos títulos de seção */
     content: '';
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    border-radius: 2px;
+    width: 90px; /* Ligeiramente mais largo */
+    height: 5px; /* Ligeiramente mais grosso */
+    background-color: var(--accent-pink); /* Usa o rosa de destaque */
+    border-radius: 3px;
 }
 
+/* Cores de texto específicas */
 .text-white {
     color: var(--white) !important;
 }
 
-.color-collection-title { /* Nova classe para os títulos das galerias */
-    color: var(--primary-color) !important;
-    font-size: 2.2rem;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 10px;
-    margin-bottom: 30px;
+/* Nova classe para os títulos das coleções na seção de produtos */
+.color-collection-title {
+    color: var(--dark-pink) !important; /* Mantém o rosa escuro */
+    font-size: 2.4rem; /* Ligeiramente maior */
+    border-bottom: 3px solid var(--primary-pink); /* Borda mais grossa e cor principal de rosa */
+    padding-bottom: 12px;
+    margin-bottom: 35px;
     display: inline-block;
+    letter-spacing: 0.3px;
 }
-
 
 a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--dark-pink);
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-pink); /* Um rosa de destaque mais vivo no hover */
+    transform: translateY(-2px);
 }
 
 section {
-    padding: 80px 20px;
+    padding: 80px 25px; /* Mais padding para maior espaçamento */
     margin: 0 auto;
     max-width: 1200px;
 }
 
 /* --- Header e Navegação --- */
 header {
-    background-color: var(--background-dark);
+    background-color: var(--primary-pink); /* Mantém o rosa primário */
     color: var(--white);
-    padding: 20px 20px;
+    padding: 20px 25px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra mais pronunciada */
 }
 
 nav {
@@ -102,10 +111,11 @@ nav {
 }
 
 .logo {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; /* Logo ligeiramente maior */
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--white);
+    letter-spacing: 1px;
 }
 
 nav ul {
@@ -116,26 +126,25 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 35px;
+    margin-left: 35px; /* Mais espaço entre os itens */
 }
 
 nav ul li a {
     color: var(--white);
-    font-weight: 400;
+    font-weight: 500; /* Um pouco mais encorpado */
     font-size: 1.15rem;
     padding: 8px 0;
     position: relative;
-    letter-spacing: 0.5px;
 }
 
 nav ul li a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px;
-    bottom: -5px;
+    height: 3px; /* Linha de hover mais grossa */
+    bottom: -5px; /* Desloca a linha um pouco para baixo */
     left: 0;
-    background-color: var(--secondary-color);
+    background-color: var(--accent-pink); /* Cor de destaque para o hover */
     transition: width 0.3s ease-out;
 }
 
@@ -151,7 +160,7 @@ nav ul li a:hover::after {
     background-attachment: fixed;
     color: var(--white);
     text-align: center;
-    padding: 200px 20px 150px;
+    padding: 200px 25px 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -168,36 +177,36 @@ nav ul li a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(44, 62, 80, 0.7); /* Overlay azul escuro semi-transparente */
+    background-color: rgba(248, 200, 220, 0.5); /* Overlay rosa suave, ligeiramente mais opaco */
     z-index: 1;
 }
 
 #hero h1, #hero p {
     position: relative;
     z-index: 2;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.35); /* Sombra mais suave e eficaz */
 }
 
 #hero h1 {
-    font-size: 4.5rem;
+    font-size: 4.8rem; /* Título maior e mais impactante */
     margin-bottom: 25px;
-    color: var(--secondary-color);
-    letter-spacing: 1px;
+    color: var(--white); /* Título hero em branco para contraste */
+    letter-spacing: 1.5px;
 }
 
 #hero p {
     font-size: 1.8rem;
     max-width: 900px;
     line-height: 1.6;
-    font-weight: 300;
+    font-weight: 400; /* Mais encorpado para legibilidade */
 }
 
 /* --- Quem Sou Section --- */
 #quem-sou {
     background-color: var(--white);
     text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
-    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08); /* Sombra mais suave */
+    border-radius: 15px; /* Cantos mais arredondados */
     margin-top: 60px;
     margin-bottom: 60px;
     padding-top: 100px;
@@ -213,8 +222,8 @@ nav ul li a:hover::after {
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 6px solid var(--white);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 7px solid var(--white); /* Borda mais grossa */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18); /* Sombra mais pronunciada */
     z-index: 10;
 }
 
@@ -233,8 +242,8 @@ nav ul li a:hover::after {
     max-width: 900px;
     margin: 0 auto;
     text-align: left;
-    color: var(--light-text);
-    font-size: 1.1rem;
+    color: var(--text-light); /* Texto mais suave */
+    font-size: 1.15rem; /* Texto ligeiramente maior */
 }
 
 .quem-sou-content p {
@@ -250,82 +259,82 @@ nav ul li a:hover::after {
 
 .custom-bullet-points li {
     display: flex;
-    align-items: center;
-    margin-bottom: 12px;
+    align-items: flex-start; /* Alinha o ícone no topo do texto */
+    margin-bottom: 15px; /* Mais espaço entre os itens da lista */
     font-size: 1.15rem;
-    color: var(--dark-text);
+    color: var(--text-dark);
 }
 
 .icon-bullet {
-    color: var(--primary-color);
-    margin-right: 15px;
-    font-size: 1.5rem;
-    min-width: 30px; /* Para alinhar bem */
+    color: var(--dark-pink);
+    margin-right: 18px; /* Mais espaço para o ícone */
+    font-size: 1.6rem; /* Ícone maior */
+    min-width: 30px;
 }
 
 
 /* --- Produtos Section (Galerias) --- */
 #produtos {
-    background-color: var(--background-dark); /* Fundo escuro */
+    background-color: var(--primary-pink); /* Fundo da seção de produtos com rosa primário */
     padding-bottom: 100px;
-    color: var(--white); /* Texto branco */
+    color: var(--white);
 }
 
 #produtos h2 {
-    color: var(--secondary-color); /* Título principal em verde água */
+    color: var(--white); /* Título principal em branco */
 }
 
 #produtos h3 {
     color: var(--white); /* Subtítulo em branco */
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 50px;
+    font-weight: 600;
 }
 
 .product-gallery {
     background-color: var(--white);
     padding: 40px;
     margin-bottom: 50px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 15px; /* Cantos mais arredondados */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Sombra mais suave */
     text-align: center;
 }
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Imagens ligeiramente maiores */
     gap: 25px;
     margin-top: 40px;
 }
 
 .gallery-container a {
-    display: block; /* Para garantir que o link ocupa todo o espaço da imagem */
-    border-radius: 8px;
+    display: block;
+    border-radius: 10px; /* Cantos mais arredondados nas imagens */
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 .gallery-container a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transform: translateY(-8px); /* Efeito de elevação maior */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2); /* Sombra maior no hover */
 }
-
 
 .gallery-container img {
     width: 100%;
-    height: 300px; /* Aumentado para 300px */
+    height: 320px; /* Imagens mais altas */
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px;
     display: block;
 }
 
 
 /* --- Contactos Section (Formulário) --- */
 #contactos {
-    background-color: var(--background-light);
+    background-color: var(--background-light-grey);
     text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
-    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+    border-radius: 15px;
     margin-top: 60px;
 }
 
@@ -333,7 +342,7 @@ nav ul li a:hover::after {
     max-width: 750px;
     margin: 0 auto 40px;
     font-size: 1.15rem;
-    color: var(--light-text);
+    color: var(--text-light);
 }
 
 #contact-form {
@@ -343,7 +352,7 @@ nav ul li a:hover::after {
     flex-direction: column;
     gap: 20px;
     padding: 35px;
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-grey);
     border-radius: 10px;
     background-color: var(--white);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -357,7 +366,7 @@ nav ul li a:hover::after {
     display: block;
     margin-bottom: 10px;
     font-weight: 600;
-    color: var(--dark-text);
+    color: var(--text-dark);
     font-size: 1.05rem;
 }
 
@@ -365,7 +374,7 @@ nav ul li a:hover::after {
 .form-group textarea {
     width: 100%;
     padding: 14px;
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-grey);
     border-radius: 6px;
     font-size: 1.05rem;
     box-sizing: border-box;
@@ -375,29 +384,30 @@ nav ul li a:hover::after {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+    border-color: var(--dark-pink); /* Usa o rosa escuro no focus */
+    box-shadow: 0 0 0 4px rgba(224, 187, 228, 0.3); /* Sombra de focus em rosa suave */
 }
 
 button[type="submit"] {
-    background-color: var(--primary-color);
+    background-color: var(--dark-pink); /* Botão em rosa escuro */
     color: var(--white);
     padding: 16px 30px;
     border: none;
     border-radius: 8px;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     align-self: center;
     margin-top: 25px;
     font-weight: 600;
     letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 button[type="submit"]:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-pink); /* Rosa de destaque no hover */
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 #form-status {
@@ -411,46 +421,47 @@ button[type="submit"]:hover {
 .social-links {
     margin-top: 50px;
     padding-top: 40px;
-    border-top: 1px dashed var(--border-light);
+    border-top: 1px dashed var(--border-grey); /* Borda suave */
 }
 
 .social-links h3 {
     margin-bottom: 25px;
-    color: var(--primary-color);
-    font-size: 2rem;
+    color: var(--dark-pink);
+    font-size: 2.2rem;
 }
 
 .social-links a {
     font-size: 3rem;
     margin: 0 20px;
-    color: var(--dark-text);
+    color: var(--dark-pink); /* Ícones em rosa escuro */
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
+    color: var(--accent-pink); /* Rosa de destaque no hover */
     transform: translateY(-5px);
 }
 
 /* --- Footer --- */
 footer {
-    background-color: var(--background-dark);
+    background-color: var(--primary-pink); /* Fundo do footer em rosa primário */
     color: var(--white);
     text-align: center;
     padding: 25px;
     margin-top: 60px;
     font-size: 0.95rem;
-    border-top: 5px solid var(--secondary-color);
+    border-top: 5px solid var(--dark-pink); /* Borda superior em rosa escuro */
 }
 
 footer a {
-    color: var(--secondary-color);
+    color: var(--white);
     font-weight: 600;
     text-decoration: underline;
+    text-underline-offset: 3px; /* Espaço para o sublinhado */
 }
 
 footer a:hover {
-    color: var(--accent-color);
+    color: var(--accent-pink);
 }
 
 /* --- Responsive Design --- */
@@ -494,7 +505,7 @@ footer a:hover {
         padding-top: 90px;
     }
 
-    .product-gallery h3 {
+    .color-collection-title {
         font-size: 1.8rem;
     }
 
@@ -562,7 +573,7 @@ footer a:hover {
         padding-top: 80px;
     }
 
-    .product-gallery h3 {
+    .color-collection-title {
         font-size: 1.6rem;
     }
 
