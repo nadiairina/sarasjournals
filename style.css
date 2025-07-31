@@ -70,7 +70,7 @@ body {
 /* Cabeçalho principal com a imagem de fundo */
 header {
     text-align: center;
-    background-image: url('Captura de ecrã 2025-07-31, às 10.32.36.jpg'); /* Sua imagem de fundo aqui */
+    background-image: url('background.png'); /* Sua imagem de fundo aqui */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
