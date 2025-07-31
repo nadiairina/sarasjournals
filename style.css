@@ -1,604 +1,586 @@
-/* Importação de fontes */
-/* Opções: 'Poppins' para corpo, 'Lora' ou 'Playfair Display' para títulos */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
-
-:root {
-    /* Paleta de Cores de Rosa Suave (Mantida e Ajustada) */
-    --primary-pink: #F8C8DC; /* Rosa claro principal */
-    --secondary-pink: #FADDEB; /* Rosa mais claro para fundos */
-    --dark-pink: #E0BBE4; /* Um rosa um pouco mais forte para detalhes e links */
-    --accent-pink: #F2A4C2; /* Um rosa um pouco mais vibrante para destaques */
-
-    /* Cores de Texto e Fundo neutras */
-    --text-dark: #333333; /* Texto principal */
-    --text-light: #555555; /* Texto secundário */
-    --background-light-grey: #fefefe; /* Fundo muito claro */
-    --border-grey: #e8e8e8; /* Cor de borda suave */
-    --white: #ffffff;
-}
+/* Paleta de Cores que vamos usar:
+   Lilás Clarinho Pastel: #E6E6FA (Lavender)
+   Rosa Claro Pastel: #FFD1DC (Pink Light)
+   Rosa Principal (textos, botões): #FF69B4 (Hot Pink, ajustado para ser um pouco mais suave se necessário)
+   Rosa mais escuro (para melhor legibilidade): #DB7093 (Pale Violet Red)
+   Azul Bebê: #ADD8E6 (Light Blue)
+   Laranja Pastel: #FFDAB9 (Peach Puff)
+*/
 
 body {
-    font-family: 'Poppins', sans-serif; /* Nova fonte para o corpo */
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    line-height: 1.8; /* Aumentado para melhor legibilidade */
-    color: var(--text-dark);
-    background-color: var(--background-light-grey);
-    overflow-x: hidden;
+    line-height: 1.6;
+    background-color: #FFF0F5; /* Branco Lavanda - um rosa bem suave para o body */
+    color: #333;
 }
 
-/* --- Global Styles --- */
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif; /* Mantido para títulos, mas um pouco mais refinado */
-    color: var(--dark-pink);
+/* Nova barra de navegação superior sólida */
+.top-nav-bar {
+    background-color: #E6E6FA; /* Lilás Clarinho Pastel para a barra */
+    color: #333; /* Texto escuro para contrastar com o lilás */
+    padding: 1rem 0;
     text-align: center;
-    margin-bottom: 1.8rem;
-    font-weight: 700;
-}
-
-/* Estilo dos títulos de seção (H2) */
-section h2 {
-    font-size: 3.2rem; /* Ligeiramente maior */
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 15px;
-    letter-spacing: 0.5px;
-}
-
-section h2::after { /* Linha decorativa por baixo dos títulos de seção */
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 90px; /* Ligeiramente mais largo */
-    height: 5px; /* Ligeiramente mais grosso */
-    background-color: var(--accent-pink); /* Usa o rosa de destaque */
-    border-radius: 3px;
-}
-
-/* Cores de texto específicas */
-.text-white {
-    color: var(--white) !important;
-}
-
-/* Nova classe para os títulos das coleções na seção de produtos */
-.color-collection-title {
-    color: var(--dark-pink) !important; /* Mantém o rosa escuro */
-    font-size: 2.4rem; /* Ligeiramente maior */
-    border-bottom: 3px solid var(--primary-pink); /* Borda mais grossa e cor principal de rosa */
-    padding-bottom: 12px;
-    margin-bottom: 35px;
-    display: inline-block;
-    letter-spacing: 0.3px;
-}
-
-a {
-    text-decoration: none;
-    color: var(--dark-pink);
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-a:hover {
-    color: var(--accent-pink); /* Um rosa de destaque mais vivo no hover */
-    transform: translateY(-2px);
-}
-
-section {
-    padding: 80px 25px; /* Mais padding para maior espaçamento */
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
-/* --- Header e Navegação --- */
-header {
-    background-color: var(--primary-pink); /* Mantém o rosa primário */
-    color: var(--white);
-    padding: 20px 25px;
-    position: fixed;
-    width: 100%;
+    position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra mais pronunciada */
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-nav {
+.top-nav-bar .nav-content {
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; /* Logo ligeiramente maior */
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 1px;
-}
-
-nav ul {
-    list-style: none;
+.top-nav-bar h1 {
     margin: 0;
+    font-size: 2.8em;
+    color: #FF69B4; /* Rosa para o título principal */
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+.top-nav-bar nav ul {
+    list-style: none;
     padding: 0;
-    display: flex;
+    margin: 0;
 }
 
-nav ul li {
-    margin-left: 35px; /* Mais espaço entre os itens */
+.top-nav-bar nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
-nav ul li a {
-    color: var(--white);
-    font-weight: 500; /* Um pouco mais encorpado */
-    font-size: 1.15rem;
-    padding: 8px 0;
-    position: relative;
+.top-nav-bar nav ul li a {
+    color: #333; /* Cor do link da navegação */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px; /* Linha de hover mais grossa */
-    bottom: -5px; /* Desloca a linha um pouco para baixo */
-    left: 0;
-    background-color: var(--accent-pink); /* Cor de destaque para o hover */
-    transition: width 0.3s ease-out;
+.top-nav-bar nav ul li a:hover {
+    color: #FF69B4; /* Rosa ao passar o mouse */
 }
 
-nav ul li a:hover::after {
-    width: 100%;
-}
 
-/* --- Hero Section --- */
-#hero {
-    background-image: url('background.png');
+/* Cabeçalho principal com a imagem de fundo */
+header {
+    text-align: center;
+    background-image: url('Captura de ecrã 2025-07-31, às 10.32.36.jpg'); /* Sua imagem de fundo aqui */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    color: var(--white);
-    text-align: center;
-    padding: 200px 25px 150px;
+    background-repeat: no-repeat;
+    min-height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
     position: relative;
+    overflow: hidden;
+    background-color: #E6E6FA; /* Lilás Clarinho Pastel como fallback ou para a cor sólida */
 }
 
-#hero::before {
+header::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(248, 200, 220, 0.5); /* Overlay rosa suave, ligeiramente mais opaco */
+    background-color: rgba(230, 230, 250, 0.4); /* Lilás Clarinho Pastel com transparência para overlay */
     z-index: 1;
 }
 
-#hero h1, #hero p {
+.header-main-content {
     position: relative;
     z-index: 2;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.35); /* Sombra mais suave e eficaz */
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7); /* Sombra mais forte para o texto ficar mais legível sobre a imagem */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
 }
 
-#hero h1 {
-    font-size: 4.8rem; /* Título maior e mais impactante */
-    margin-bottom: 25px;
-    color: var(--white); /* Título hero em branco para contraste */
-    letter-spacing: 1.5px;
-}
-
-#hero p {
-    font-size: 1.8rem;
-    max-width: 900px;
-    line-height: 1.6;
-    font-weight: 400; /* Mais encorpado para legibilidade */
-}
-
-/* --- Quem Sou Section --- */
-#quem-sou {
-    background-color: var(--white);
+header h2 {
+    margin-top: 20px;
+    font-size: 2.8em;
+    color: #DB7093; /* ALTERADO: Cor da frase "Sê bem-vinda..." para o mesmo rosa escuro */
     text-align: center;
-    box-shadow: 0 0 25px rgba(0,0,0,0.08); /* Sombra mais suave */
-    border-radius: 15px; /* Cantos mais arredondados */
-    margin-top: 60px;
-    margin-bottom: 60px;
-    padding-top: 100px;
-    position: relative;
+    padding: 0 15px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 400;
 }
 
-.profile-picture {
-    width: 220px;
-    height: 220px;
+/* Estilos para a foto de perfil circular */
+.profile-pic-container {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 7px solid var(--white); /* Borda mais grossa */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.18); /* Sombra mais pronunciada */
-    z-index: 10;
+    margin: 0 auto;
+    border: 5px solid #FFD1DC; /* Rosa Claro Pastel */
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.profile-picture img {
+.profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#quem-sou h2 {
-    margin-top: 0;
-    padding-top: 20px;
-}
-
-.quem-sou-content {
-    max-width: 900px;
+.section {
+    padding: 60px 20px;
     margin: 0 auto;
-    text-align: left;
-    color: var(--text-light); /* Texto mais suave */
-    font-size: 1.15rem; /* Texto ligeiramente maior */
+    max-width: 900px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.quem-sou-content p {
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animações (mantidas como estão) */
+#quem-sou.active { animation: fadeInSlideUp 1s ease-out forwards; }
+#produtos.active { animation: fadeInZoomIn 1s ease-out forwards; }
+#contactos.active { animation: fadeInRotate 1s ease-out forwards; }
+
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInZoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInRotate {
+    from { opacity: 0; transform: translateY(50px) rotateX(-90deg); }
+    to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+
+/* Títulos das Seções (Quem Sou, Cadernos, Contactos) */
+.section h2 {
+    text-align: center;
+    color: #FF69B4; /* Rosa Principal */
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Título secundário dentro da seção Cadernos */
+#produtos h3.text-white {
+    color: #DB7093; /* Cor rosa mais escura para melhor legibilidade */
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Títulos das Coleções (Ocean Reads, Blush Reads, Golden Reads) */
+.color-collection-title {
+    font-size: 2.2em;
+    margin-top: 30px;
     margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
 }
 
-.custom-bullet-points {
+/* Cores específicas para as coleções */
+.product-gallery:nth-of-type(1) .color-collection-title { /* Ocean Reads */
+    color: #ADD8E6; /* Azul Bebê */
+}
+
+.product-gallery:nth-of-type(2) .color-collection-title { /* Blush Reads */
+    color: #FFD1DC; /* Rosa Claro Pastel */
+}
+
+.product-gallery:nth-of-type(3) .color-collection-title { /* Golden Reads */
+    color: #FFDAB9; /* Laranja Pastel */
+}
+
+
+/* Estilos para as galerias de produtos (restaurados) */
+.product-gallery {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.gallery {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.gallery-images {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-images img {
+    width: 100%;
+    display: block;
+    height: auto;
+    /* object-fit: contain; */
+}
+
+.gallery .prev-btn,
+.gallery .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 105, 180, 0.7); /* Rosa Principal com transparência */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.gallery .prev-btn:hover,
+.gallery .next-btn:hover {
+    background-color: #FF69B4; /* Rosa Principal */
+}
+
+.gallery .prev-btn {
+    left: 10px;
+}
+
+.gallery .next-btn {
+    right: 10px;
+}
+
+
+/* Estilos existentes para reading-benefits, contact form, social links */
+.reading-benefits {
     list-style: none;
     padding: 0;
-    margin-left: 20px;
-    margin-bottom: 25px;
+    margin: 20px 0;
 }
 
-.custom-bullet-points li {
+.reading-benefits li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    line-height: 1.4;
     display: flex;
-    align-items: flex-start; /* Alinha o ícone no topo do texto */
-    margin-bottom: 15px; /* Mais espaço entre os itens da lista */
-    font-size: 1.15rem;
-    color: var(--text-dark);
+    align-items: center;
 }
 
-.icon-bullet {
-    color: var(--dark-pink);
-    margin-right: 18px; /* Mais espaço para o ícone */
-    font-size: 1.6rem; /* Ícone maior */
+.reading-benefits li i {
+    color: #FF69B4; /* Rosa Principal */
+    margin-right: 15px;
+    font-size: 1.3em;
     min-width: 30px;
-}
-
-
-/* --- Produtos Section (Galerias) --- */
-#produtos {
-    background-color: var(--primary-pink); /* Fundo da seção de produtos com rosa primário */
-    padding-bottom: 100px;
-    color: var(--white);
-}
-
-#produtos h2 {
-    color: var(--white); /* Título principal em branco */
-}
-
-#produtos h3 {
-    color: var(--white); /* Subtítulo em branco */
-    font-size: 2rem;
-    margin-bottom: 50px;
-    font-weight: 600;
-}
-
-.product-gallery {
-    background-color: var(--white);
-    padding: 40px;
-    margin-bottom: 50px;
-    border-radius: 15px; /* Cantos mais arredondados */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Sombra mais suave */
     text-align: center;
 }
 
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Imagens ligeiramente maiores */
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.gallery-container a {
-    display: block;
-    border-radius: 10px; /* Cantos mais arredondados nas imagens */
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-}
-
-.gallery-container a:hover {
-    transform: translateY(-8px); /* Efeito de elevação maior */
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2); /* Sombra maior no hover */
-}
-
-.gallery-container img {
-    width: 100%;
-    height: 320px; /* Imagens mais altas */
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-}
-
-
-/* --- Contactos Section (Formulário) --- */
-#contactos {
-    background-color: var(--background-light-grey);
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0,0,0,0.08);
-    border-radius: 15px;
-    margin-top: 60px;
-}
-
-#contactos p {
-    max-width: 750px;
-    margin: 0 auto 40px;
-    font-size: 1.15rem;
-    color: var(--text-light);
-}
-
-#contact-form {
-    max-width: 650px;
-    margin: 0 auto;
+#contactForm {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 35px;
-    border: 1px solid var(--border-grey);
-    border-radius: 10px;
-    background-color: var(--white);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.form-group {
-    text-align: left;
+#contactForm label {
+    font-weight: bold;
+    color: #FFD1DC; /* Rosa Claro Pastel */
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--text-dark);
-    font-size: 1.05rem;
-}
-
-.form-group input,
-.form-group textarea {
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+    padding: 10px;
+    border: 1px solid #FFD1DC; /* Rosa Claro Pastel */
+    border-radius: 4px;
+    font-size: 1em;
     width: 100%;
-    padding: 14px;
-    border: 1px solid var(--border-grey);
-    border-radius: 6px;
-    font-size: 1.05rem;
     box-sizing: border-box;
-    background-color: #fcfcfc;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+#contactForm input[type="text"]:focus,
+#contactForm input[type="email"]:focus,
+#contactForm textarea:focus {
     outline: none;
-    border-color: var(--dark-pink); /* Usa o rosa escuro no focus */
-    box-shadow: 0 0 0 4px rgba(224, 187, 228, 0.3); /* Sombra de focus em rosa suave */
+    border-color: #FF69B4; /* Rosa Principal */
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
 }
 
-button[type="submit"] {
-    background-color: var(--dark-pink); /* Botão em rosa escuro */
-    color: var(--white);
-    padding: 16px 30px;
+#contactForm button {
+    background-color: #FF69B4; /* Rosa Principal */
+    color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    align-self: center;
-    margin-top: 25px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: var(--accent-pink); /* Rosa de destaque no hover */
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+#contactForm button:hover {
+    background-color: #DB7093; /* Um tom de rosa mais escuro para o hover */
 }
 
-#form-status {
-    margin-top: 20px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: green;
-}
-
-/* --- Social Links --- */
 .social-links {
-    margin-top: 50px;
-    padding-top: 40px;
-    border-top: 1px dashed var(--border-grey); /* Borda suave */
+    text-align: center;
+    margin-top: 30px;
 }
 
-.social-links h3 {
-    margin-bottom: 25px;
-    color: var(--dark-pink);
-    font-size: 2.2rem;
+.social-links p {
+    color: #FF69B4; /* Rosa Principal */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 400;
 }
 
 .social-links a {
-    font-size: 3rem;
-    margin: 0 20px;
-    color: var(--dark-pink); /* Ícones em rosa escuro */
-    transition: color 0.3s ease, transform 0.2s ease;
+    margin: 0 10px;
+    display: inline-block;
 }
 
-.social-links a:hover {
-    color: var(--accent-pink); /* Rosa de destaque no hover */
-    transform: translateY(-5px);
+.social-links img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
 }
 
-/* --- Footer --- */
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
 footer {
-    background-color: var(--primary-pink); /* Fundo do footer em rosa primário */
-    color: var(--white);
     text-align: center;
-    padding: 25px;
-    margin-top: 60px;
-    font-size: 0.95rem;
-    border-top: 5px solid var(--dark-pink); /* Borda superior em rosa escuro */
+    padding: 20px;
+    background-color: #E6E6FA; /* Lilás Clarinho Pastel para o footer */
+    color: #333; /* Texto escuro para contraste */
+    margin-top: 20px;
+}
+
+footer p {
+    color: #333; /* Cor do texto dentro do footer */
 }
 
 footer a {
-    color: var(--white);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px; /* Espaço para o sublinhado */
+    color: #FF69B4; /* Rosa Principal para o link do desenvolvedor */
+    text-decoration: none;
+    font-weight: bold;
 }
 
 footer a:hover {
-    color: var(--accent-pink);
+    text-decoration: underline;
 }
 
-/* --- Responsive Design --- */
+/* Estilos do lightbox padrão, se você o estiver usando */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.lightbox-prev, .lightbox-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    transform: translateY(-50%);
+}
+
+.lightbox-prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.lightbox-next {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
-    nav {
+    .top-nav-bar .nav-content {
         flex-direction: column;
-        text-align: center;
+        padding: 10px 20px;
     }
 
-    nav ul {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+    .top-nav-bar h1 {
+        margin-bottom: 10px;
+        font-size: 2.2em;
+    }
+
+    header {
+        min-height: 400px;
+    }
+    header h2 {
+        font-size: 2.2em;
     }
 
     nav ul li {
-        margin: 8px 15px;
+        margin: 0 10px;
     }
 
-    .logo {
-        font-size: 1.8rem;
+    .section {
+        padding: 40px 15px;
     }
 
-    #hero h1 {
-        font-size: 3.5rem;
+    .section h2 {
+        font-size: 2.2em;
     }
 
-    #hero p {
-        font-size: 1.4rem;
-    }
-
-    section h2 {
-        font-size: 2.5rem;
-    }
-
-    .profile-picture {
-        width: 180px;
-        height: 180px;
-    }
-    #quem-sou {
-        padding-top: 90px;
+    #produtos h3.text-white {
+        font-size: 1.6em;
     }
 
     .color-collection-title {
-        font-size: 1.8rem;
+        font-size: 1.8em;
     }
 
-    .gallery-container {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 20px;
-    }
-    .gallery-container img {
-        height: 250px;
+    .social-links p {
+        font-size: 1.3em;
     }
 
-    #contact-form {
-        padding: 25px;
+    .gallery {
+        max-width: 90%;
     }
 
-    button[type="submit"] {
-        padding: 14px 25px;
-        font-size: 1.1rem;
+    .profile-pic-container {
+        width: 150px;
+        height: 150px;
     }
 
-    .social-links a {
-        font-size: 2.5rem;
+    .reading-benefits li {
+        font-size: 1em;
+    }
+
+    .reading-benefits li i {
+        margin-right: 10px;
+        font-size: 1.2em;
     }
 }
 
 @media (max-width: 480px) {
+    .top-nav-bar h1 {
+        font-size: 1.8em;
+    }
+    .top-nav-bar nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
     header {
-        padding: 15px 10px;
+        min-height: 350px;
+    }
+    header h2 {
+        font-size: 1.8em;
     }
 
-    .logo {
-        font-size: 1.6rem;
+    #contactForm {
+        padding: 0 10px;
     }
 
-    nav ul li {
-        margin: 5px 10px;
-        font-size: 1rem;
+    .profile-pic-container {
+        width: 120px;
+        height: 120px;
     }
 
-    #hero {
-        padding: 150px 15px 100px;
+    .section h2 {
+        font-size: 1.8em;
     }
 
-    #hero h1 {
-        font-size: 2.8rem;
-    }
-
-    #hero p {
-        font-size: 1.2rem;
-    }
-
-    section {
-        padding: 50px 15px;
-    }
-
-    section h2 {
-        font-size: 2rem;
-    }
-
-    .profile-picture {
-        width: 150px;
-        height: 150px;
-    }
-    #quem-sou {
-        padding-top: 80px;
+    #produtos h3.text-white {
+        font-size: 1.4em;
     }
 
     .color-collection-title {
-        font-size: 1.6rem;
+        font-size: 1.6em;
     }
 
-    .gallery-container {
-        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
-        gap: 15px;
-    }
-    .gallery-container img {
-        height: 220px;
-    }
-
-    #contact-form {
-        padding: 20px;
-    }
-
-    button[type="submit"] {
-        font-size: 1rem;
-        padding: 12px 20px;
-    }
-
-    .social-links a {
-        font-size: 2rem;
-    }
-
-    footer {
-        padding: 20px 15px;
+    .social-links p {
+        font-size: 1.1em;
     }
 }
