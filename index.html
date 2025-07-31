@@ -1,125 +1,129 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sara's Journals - Designer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fresco/2.3.0/css/fresco.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    </head>
 <body>
+    <div class="top-nav-bar">
+        <div class="nav-content">
+            <h1>Sara's Journals</h1>
+            <nav>
+                <ul>
+                    <li><a href="#quem-sou">Quem Sou</a></li>
+                    <li><a href="#produtos">Cadernos</a></li>
+                    <li><a href="#contactos">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
     <header>
-        <nav>
-            <div class="logo">Sara's Journals</div>
-            <ul>
-                <li><a href="#quem-sou">Quem Sou</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#contactos">Contactos</a></li>
-            </ul>
-        </nav>
+        <div class="header-main-content">
+            <div class="profile-pic-container">
+                <img src="sua-foto-de-perfil.jpg" alt="Foto de Perfil" class="profile-pic">
+            </div>
+            <h2>Sê bem-vinda ao meu Espaço para Leitores!</h2>
+        </div>
     </header>
 
     <main>
-        <section id="hero">
-            <h1>Sara's Journals</h1>
-            <p>Sê bem-vinda ao meu Espaço para Leitores!</p>
+        <section id="quem-sou" class="section">
+            <h2>Quem Sou</h2> <p>Olá, sou a Sara! Uma alma apaixonada por livros e palavras, e uma designer independente que transforma esta paixão em cadernos únicos. Se, como eu, vives entre as páginas e adoras a magia de uma boa história, sabes o quanto é importante ter um espaço para organizar os pensamentos e refletir sobre as leituras.</p>
+            <p>Com a Sara's Journals, criei mais do que simples cadernos e diários, desenhei ferramentas para leitores e escritores dedicados. Cada caderno tem 40 páginas, oferecendo muito espaço para fazeres todo o tipo de anotações. Aqui encontrarás o lugar perfeito para:</p>
+            <ul class="reading-benefits">
+                <li><i class="fas fa-book-open"></i> Anotares os pontos essenciais de cada livro</li>
+                <li><i class="fas fa-lightbulb"></i> Refletires sobre as tuas opiniões e sentimentos que cada história desperta</li>
+                <li><i class="fas fa-clipboard-list"></i> Planeares as tuas próximas leituras e metas literárias</li>
+                <li><i class="fas fa-chart-line"></i> Registares os teus desafios de leitura e acompanhares o teu progresso</li>
+            </ul>
+            <p>Cada caderno é feito com carinho e atenção aos detalhes, pensado para ser o teu companheiro em cada folha virada, onde as tuas ideias e reflexões sobre os livros ganham vida e se transformam em registos valiosos.</p>
+            <p>Explora os meus produtos e descobre o teu novo companheiro para todas as tuas aventuras literárias!</p>
         </section>
 
-        <section id="quem-sou" data-aos="fade-up">
-            <div class="profile-picture">
-                <img src="perfil.png" alt="Foto de Perfil de Sara"> </div>
-            <h2>Quem Sou</h2>
-            <div class="quem-sou-content">
-                <p>Olá, sou a Sara! Uma alma apaixonada por livros e palavras, e uma designer independente que transforma esta paixão em cadernos únicos. Se, como eu, vives entre as páginas e adoras a magia de uma boa história, sabes o quanto é importante ter um espaço para organizar os pensamentos e refletir sobre as leituras.</p>
-                <p>Com a Sara's Journals, criei mais do que simples cadernos e diários, desenhei ferramentas para leitores e escritores dedicados. Cada caderno tem 40 páginas, oferecendo muito espaço para fazeres todo o tipo de anotações. Aqui encontrarás o lugar perfeito para:</p>
-                <ul class="custom-bullet-points">
-                    <li><i class="fas fa-book-open icon-bullet"></i> Anotares os pontos essenciais de cada livro</li>
-                    <li><i class="fas fa-lightbulb icon-bullet"></i> Refletires sobre as tuas opiniões e sentimentos que cada história desperta</li>
-                    <li><i class="fas fa-clipboard-list icon-bullet"></i> Planeares as tuas próximas leituras e metas literárias</li>
-                    <li><i class="fas fa-chart-line icon-bullet"></i> Registares os teus desafios de leitura e acompanhares o teu progresso</li>
-                </ul>
-                <p>Cada caderno é feito com carinho e atenção aos detalhes, pensado para ser o teu companheiro em cada folha virada, onde as tuas ideias e reflexões sobre os livros ganham vida e se transformam em registos valiosos.</p>
-                <p>Explora os meus produtos e descobre o teu novo companheiro para todas as tuas aventuras literárias!</p>
-            </div>
-        </section>
-
-        <section id="produtos" data-aos="fade-up">
-            <h2 class="text-white">Cadernos</h2>
-            <h3 class="text-white">Liberta a tua criatividade com a minha coleção de cadernos, feitos para escreveres e organizações o teu mundo interior!</h3>
+        <section id="produtos" class="section">
+            <h2 class="text-white">Cadernos</h2> <h3 class="text-white">Liberta a tua criatividade com a minha coleção de cadernos, feitos para escreveres e organizações o teu mundo interior!</h3>
+            
             <div class="product-gallery">
-                <h3 class="color-collection-title">Ocean Reads</h3>
-                <div class="gallery-container">
-                    <a data-fresco-group="ocean-reads" href="1.png"><img src="1.png" alt="Caderno Ocean Reads 1"></a>
-                    <a data-fresco-group="ocean-reads" href="2.png"><img src="2.png" alt="Caderno Ocean Reads 2"></a>
-                    <a data-fresco-group="ocean-reads" href="4.png"><img src="4.png" alt="Caderno Ocean Reads 3"></a>
-                    <a data-fresco-group="ocean-reads" href="6.png"><img src="6.png" alt="Caderno Ocean Reads 4"></a>
-                    <a data-fresco-group="ocean-reads" href="8.png"><img src="8.png" alt="Caderno Ocean Reads 5"></a>
-                    <a data-fresco-group="ocean-reads" href="10.png"><img src="10.png" alt="Caderno Ocean Reads 6"></a>
-                    <a data-fresco-group="ocean-reads" href="13.png"><img src="13.png" alt="Caderno Ocean Reads 7"></a>
-                    <a data-fresco-group="ocean-reads" href="26.png"><img src="26.png" alt="Caderno Ocean Reads 8"></a>
-                    <a data-fresco-group="ocean-reads" href="29.png"><img src="29.png" alt="Caderno Ocean Reads 9"></a>
-                    <a data-fresco-group="ocean-reads" href="36.png"><img src="36.png" alt="Caderno Ocean Reads 10"></a>
+                <h3 class="color-collection-title">Ocean Reads</h3> <div class="gallery" data-product="1">
+                    <div class="gallery-images">
+                        <img src="1.png" alt="Caderno Ocean Reads 1">
+                        <img src="2.png" alt="Caderno Ocean Reads 2" style="display:none;">
+                        <img src="4.png" alt="Caderno Ocean Reads 3" style="display:none;">
+                        <img src="6.png" alt="Caderno Ocean Reads 4" style="display:none;">
+                        <img src="8.png" alt="Caderno Ocean Reads 5" style="display:none;">
+                        <img src="10.png" alt="Caderno Ocean Reads 6" style="display:none;">
+                        <img src="13.png" alt="Caderno Ocean Reads 7" style="display:none;">
+                        <img src="26.png" alt="Caderno Ocean Reads 8" style="display:none;">
+                        <img src="29.png" alt="Caderno Ocean Reads 9" style="display:none;">
+                        <img src="36.png" alt="Caderno Ocean Reads 10" style="display:none;">
+                    </div>
+                    <button class="prev-btn">&lt;</button>
+                    <button class="next-btn">&gt;</button>
                 </div>
             </div>
 
             <div class="product-gallery">
-                <h3 class="color-collection-title">Blush Reads</h3>
-                <div class="gallery-container">
-                    <a data-fresco-group="blush-reads" href="rosa1.png"><img src="rosa1.png" alt="Caderno Blush Reads 1"></a>
-                    <a data-fresco-group="blush-reads" href="rosa2.png"><img src="rosa2.png" alt="Caderno Blush Reads 2"></a>
-                    <a data-fresco-group="blush-reads" href="rosa3.png"><img src="rosa3.png" alt="Caderno Blush Reads 3"></a>
-                    <a data-fresco-group="blush-reads" href="rosa4.png"><img src="rosa4.png" alt="Caderno Blush Reads 4"></a>
-                    <a data-fresco-group="blush-reads" href="rosa5.png"><img src="rosa5.png" alt="Caderno Blush Reads 5"></a>
-                    <a data-fresco-group="blush-reads" href="rosa6.png"><img src="rosa6.png" alt="Caderno Blush Reads 6"></a>
-                    <a data-fresco-group="blush-reads" href="rosa7.png"><img src="rosa7.png" alt="Caderno Blush Reads 7"></a>
-                    <a data-fresco-group="blush-reads" href="rosa8.png"><img src="rosa8.png" alt="Caderno Blush Reads 8"></a>
-                    <a data-fresco-group="blush-reads" href="rosa9.png"><img src="rosa9.png" alt="Caderno Blush Reads 9"></a>
-                    <a data-fresco-group="blush-reads" href="rosa10.png"><img src="rosa10.png" alt="Caderno Blush Reads 10"></a>
+                <h3 class="color-collection-title">Blush Reads</h3> <div class="gallery" data-product="2">
+                    <div class="gallery-images">
+                        <img src="rosa1.png" alt="Caderno Blush Reads 1">
+                        <img src="rosa2.png" alt="Caderno Blush Reads 2" style="display:none;">
+                        <img src="rosa3.png" alt="Caderno Blush Reads 3" style="display:none;">
+                        <img src="rosa4.png" alt="Caderno Blush Reads 4" style="display:none;">
+                        <img src="rosa5.png" alt="Caderno Blush Reads 5" style="display:none;">
+                        <img src="rosa6.png" alt="Caderno Blush Reads 6" style="display:none;">
+                        <img src="rosa7.png" alt="Caderno Blush Reads 7" style="display:none;">
+                        <img src="rosa8.png" alt="Caderno Blush Reads 8" style="display:none;">
+                        <img src="rosa9.png" alt="Caderno Blush Reads 9" style="display:none;">
+                        <img src="rosa10.png" alt="Caderno Blush Reads 10" style="display:none;">
+                    </div>
+                    <button class="prev-btn">&lt;</button>
+                    <button class="next-btn">&gt;</button>
                 </div>
             </div>
 
             <div class="product-gallery">
-                <h3 class="color-collection-title">Golden Reads</h3>
-                <div class="gallery-container">
-                    <a data-fresco-group="golden-reads" href="laranja1.png"><img src="laranja1.png" alt="Caderno Golden Reads 1"></a>
-                    <a data-fresco-group="golden-reads" href="laranja2.png"><img src="laranja2.png" alt="Caderno Golden Reads 2"></a>
-                    <a data-fresco-group="golden-reads" href="laranja3.png"><img src="laranja3.png" alt="Caderno Golden Reads 3"></a>
-                    <a data-fresco-group="golden-reads" href="laranja4.png"><img src="laranja4.png" alt="Caderno Golden Reads 4"></a>
-                    <a data-fresco-group="golden-reads" href="laranja5.png"><img src="laranja5.png" alt="Caderno Golden Reads 5"></a>
-                    <a data-fresco-group="golden-reads" href="laranja6.png"><img src="laranja6.png" alt="Caderno Golden Reads 6"></a>
-                    <a data-fresco-group="golden-reads" href="laranja7.png"><img src="laranja7.png" alt="Caderno Golden Reads 7"></a>
-                    <a data-fresco-group="golden-reads" href="laranja8.png"><img src="laranja8.png" alt="Caderno Golden Reads 8"></a>
-                    <a data-fresco-group="golden-reads" href="laranja9.png"><img src="laranja9.png" alt="Caderno Golden Reads 9"></a>
-                    <a data-fresco-group="golden-reads" href="laranja10.png"><img src="laranja10.png" alt="Caderno Golden Reads 10"></a>
+                <h3 class="color-collection-title">Golden Reads</h3> <div class="gallery" data-product="3">
+                    <div class="gallery-images">
+                        <img src="laranja1.png" alt="Caderno Golden Reads 1">
+                        <img src="laranja2.png" alt="Caderno Golden Reads 2" style="display:none;">
+                        <img src="laranja3.png" alt="Caderno Golden Reads 3" style="display:none;">
+                        <img src="laranja4.png" alt="Caderno Golden Reads 4" style="display:none;">
+                        <img src="laranja5.png" alt="Caderno Golden Reads 5" style="display:none;">
+                        <img src="laranja6.png" alt="Caderno Golden Reads 6" style="display:none;">
+                        <img src="laranja7.png" alt="Caderno Golden Reads 7" style="display:none;">
+                        <img src="laranja8.png" alt="Caderno Golden Reads 8" style="display:none;">
+                        <img src="laranja9.png" alt="Caderno Golden Reads 9" style="display:none;">
+                        <img src="laranja10.png" alt="Caderno Golden Reads 10" style="display:none;">
+                    </div>
+                    <button class="prev-btn">&lt;</button>
+                    <button class="next-btn">&gt;</button>
                 </div>
             </div>
         </section>
 
-        <section id="contactos" data-aos="fade-up">
-            <h2>Contactos</h2>
-            <p>Tens alguma questão ou gostarias de encomendar um dos meus produtos? Preenche o formulário abaixo ou entra em contacto comigo através do Instagram!</p>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensagem:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit">Enviar Mensagem</button>
-                <p id="form-status"></p>
+        <section id="contactos" class="section">
+            <h2>Contactos</h2> <form id="contactForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Enviar</button>
             </form>
+            <div id="form-message" style="display: none; margin-top: 10px; color: green;"></div>
 
             <div class="social-links">
-                <h3>Segue-me no Instagram!</h3>
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <p>Segue-me no Instagram!</p>
+                <a href="https://instagram.com/seuperfil" target="_blank"><img src="https://img.icons8.com/ios-filled/50/FF69B4/instagram-new.png" alt="Instagram"></a>
             </div>
         </section>
     </main>
@@ -128,18 +132,13 @@
         <p>&copy; 2025 Sara's Journals. Todos os direitos reservados.<br>Website desenvolvido por <a href="https://nadiairina.github.io/Nadia-Portfolio/index.html" target="_blank"><span>Nadia Irina.</span></a></p>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fresco/2.3.0/js/fresco.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="">
+        <a class="lightbox-prev">&#10094;</a>
+        <a class="lightbox-next">&#10095;</a>
+    </div>
 
-    <script>
-        // Inicializa o AOS (Animate On Scroll)
-        AOS.init({
-            duration: 1000, // Duração da animação em milissegundos
-            once: true,    // Anima apenas uma vez ao rolar para baixo
-            offset: 100    // Começa a animar 100px antes de atingir o elemento
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
